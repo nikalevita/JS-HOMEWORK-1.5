@@ -5,6 +5,13 @@ function Lamp(name, model, id, brightness){
 	this._type = "lamp";
 }
 
+Lamp.prototype.on = function (){
+	return Device.prototype.on.call(this);
+}
+Lamp.prototype.off = function (){
+	return Device.prototype.off.call(this);
+}
+
 Lamp.prototype.brightnessValue = function (){
 	return Brightness.prototype.getBrightValue.call(this);
 }

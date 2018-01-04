@@ -7,6 +7,13 @@ function Tv(name, model, id, sound, brightness, channels){
 	this._type = "tv";
 }
 
+Tv.prototype.on = function (){
+	return Device.prototype.on.call(this);
+}
+Tv.prototype.off = function (){
+	return Device.prototype.off.call(this);
+}
+
 Tv.prototype.soundValue = function (){
 	return Sound.prototype.getSoundValue.call(this);
 }

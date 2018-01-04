@@ -5,6 +5,13 @@ function Fridge(name, model, id, temperature){
 	this._type = "fridge";
 }
 
+Fridge.prototype.on = function (){
+	return Device.prototype.on.call(this);
+}
+Fridge.prototype.off = function (){
+	return Device.prototype.off.call(this);
+}
+
 Fridge.prototype.temperatureValue = function (){ 
 	return Temperature.prototype.getTempValue.call(this);
 }

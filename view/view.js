@@ -116,7 +116,7 @@ class View {
 
 		/* sound */
 		let soundWrap = document.createElement("div");
-		if('_sound' in this._device){
+		if('_soundValue' in this._device){
 			soundWrap.className = "btn-group";
 
 			this._sound.className = "sound";
@@ -145,7 +145,7 @@ class View {
 		}
 
 		let tempWrap = document.createElement("div");
-		if('_temperature' in this._device){
+		if('_valueTemperature' in this._device){
 			tempWrap.className = "btn-group";
 
 			this._temp.className = "temp";
@@ -167,7 +167,7 @@ class View {
 		}
 
 		let brightWrap = document.createElement("div");
-		if('_brightness' in this._device){
+		if('_valueBrightness' in this._device){
 			brightWrap.className = "btn-group";
 
 			this._bright.className = "bright";
@@ -232,7 +232,7 @@ class View {
 		device.appendChild(name);
 		device.appendChild(model);
 
-		if('_sound' in this._device){
+		if('_soundValue' in this._device){
 			device.appendChild(this._sound);
 			device.appendChild(soundWrap);
 			soundWrap.appendChild(this._soundDecBtn);
@@ -240,14 +240,14 @@ class View {
 			soundWrap.appendChild(this._soundOff);
 		}
 
-		if('_temperature' in this._device){
+		if('_valueTemperature' in this._device){
 			device.appendChild(this._temp);
 			device.appendChild(tempWrap);
 			tempWrap.appendChild(this._tempDecBtn);
 			tempWrap.appendChild(this._tempIncBtn);
 		}
 
-		if('_brightness' in this._device){
+		if('_valueBrightness' in this._device){
 			device.appendChild(this._bright);
 			device.appendChild(brightWrap);
 			brightWrap.appendChild(this._brightDecBtn);

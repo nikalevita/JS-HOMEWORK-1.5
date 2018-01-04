@@ -1,32 +1,30 @@
 "use strict";
-
-let channelsPackage = {
+var channelsPackage = {
 	standart: ["First", "Second", "Third"],
 	sport: ["sport-1", "sport-2", "sport-3", "sport-4"],
 	discovery: ["discovery-1", "discovery-2", "discovery-3", "discovery-4"]
-
 };
 
-let myTv = new Tv('My TV', 'LG-3000', 1, new Sound(), new Brightness(), new Channels(channelsPackage.standart));
-let myFridge = new Fridge('My Fridge', 'NORD-200', 2, new Temperature());
-let myLamp = new Lamp('My Lamp', 'Xiaomi Yeelight', 3, new Brightness());
+var myTv = new Tv('My TV', 'LG-3000', 1, new Sound(), new Brightness(), channelsPackage.standart);
+var myFridge = new Fridge('My Fridge', 'NORD-200', 2, new Temperature());
+var myLamp = new Lamp('My Lamp', 'Xiaomi Yeelight', 3, new Brightness());
 
 
-let myDevices = [myTv, myFridge, myLamp];
+var myDevices = [myTv, myFridge, myLamp];
 
-let id = 4;
+var id = 4;
 
 console.dir(myDevices);
 
 function render(){
-	for(let i = 0; i < myDevices.length; i++){
+	for(var i = 0; i < myDevices.length; i++){
 		new View(myDevices[i], document.getElementById("app")).render();
 	}
 }
 
 render();
 
-let visibleDeviceType = () => {
+var visibleDeviceType = () => {
 	if(document.getElementById('deviceType').value !== 'tv'){
 		document.getElementById('channelsSelect').style.display = 'none';
 	}else{
@@ -41,15 +39,15 @@ document.getElementById('deviceType').addEventListener("change", function(){
 /* ADD */
 document.getElementById('addDevice').addEventListener("click", function(){
 
-	let type = document.getElementById('deviceType');
-	let typeVal = type.value;
-	let name = document.getElementById('name').value;
-	let model = document.getElementById('model').value;
+	var type = document.getElementById('deviceType');
+	var typeVal = type.value;
+	var name = document.getElementById('name').value;
+	var model = document.getElementById('model').value;
 	
 	function getSelection(){
-		let currentChannelsPackage = document.getElementById('currentChannelsPackage');
-		let channelsList = [];
-		for(let i = 0; i < currentChannelsPackage.options.length; i++){
+		var currentChannelsPackage = document.getElementById('currentChannelsPackage');
+		var channelsList = [];
+		for(var i = 0; i < currentChannelsPackage.options.length; i++){
 			if(currentChannelsPackage.options[i].selected === true){
 				channelsList = channelsList.concat(channelsPackage[currentChannelsPackage.options[i].value]);
 			}
@@ -57,12 +55,12 @@ document.getElementById('addDevice').addEventListener("click", function(){
 		return channelsList;
 	}
 
-	let newDevice; 
+	var newDevice; 
 
 	switch(typeVal) {
 		case 'tv':
 			if( name !== '' ){
-				newDevice = new Tv( name, model, id, new Sound(), new Brightness(), new Channels( getSelection() ) );
+				newDevice = new Tv( name, model, id, new Sound(), new Brightness(), getSelection() );
 			} else {
 				throw new Error("Введите данные");
 			}
@@ -92,11 +90,11 @@ document.getElementById('addDevice').addEventListener("click", function(){
 
 /* REMOVE */
 function deleteDevice(){
-	let btnDelete = document.getElementsByClassName('close');
-	for(let i = 0; i < btnDelete.length; i++){
+	var btnDelete = document.getElementsByClassName('close');
+	for(var i = 0; i < btnDelete.length; i++){
 		btnDelete[i].addEventListener("click", function(){
 
-			let dataId = Number(this.getAttribute("data-id"));
+			var dataId = Number(this.getAttribute("data-id"));
 
 			function filterByID(obj) {
 				if (obj._id !== dataId) {

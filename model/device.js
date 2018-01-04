@@ -18,6 +18,6 @@ Device.prototype.getModel = function () {
 Device.prototype.on = function (){
 	this._state = true;
 }
-Device.prototype.on = function (){
+Device.prototype.off = function (){
 	this._state = false;
 }
