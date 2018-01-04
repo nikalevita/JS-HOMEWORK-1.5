@@ -1,18 +1,18 @@
 "use strict";
 function Brightness() {
-	this._value = 50;
+	this._valueBrightness = 50;
 }
 
 Brightness.prototype.getBrightValue = function () {
-	return this._value;
+	return this._valueBrightness;
 };
 Brightness.prototype.increase = function (){
-	if (this._value < 100) {
-		this._value += 1;
+	if (this._valueBrightness < 100) {
+		this._valueBrightness += 1;
 	}
 }
 Brightness.prototype.decrease = function (){
-	if (this._value > 0) {
-		this._value -= 1;
+	if (this._valueBrightness > 0) {
+		this._valueBrightness -= 1;
 	}
 }

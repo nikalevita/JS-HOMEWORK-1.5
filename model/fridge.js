@@ -1,19 +1,18 @@
 "use strict";
-
 function Fridge(name, model, id, temperature){
 	Device.call(this, name, model, id);
+	Temperature.call(this);
 	this._type = "fridge";
-	this._temperature = temperature;
 }
 
 Fridge.prototype.temperatureValue = function (){ 
 	return Temperature.prototype.getTempValue.call(this);
 }
 Fridge.prototype.setTemperatureMaxValue = function (max){
-	return Temperature.prototype.maxValue.call(max);
+	return Temperature.prototype.setMaxValue.call(this, max);
 }
 Fridge.prototype.setTemperatureMinValue = function (min){
-	return Temperature.prototype.minValue.call(min);
+	return Temperature.prototype.setMinValue.call(this, min);
 }
 Fridge.prototype.increaseTemperature = function (){
 	return Temperature.prototype.increase.call(this);

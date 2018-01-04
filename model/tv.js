@@ -1,29 +1,56 @@
 "use strict";
-class Tv extends Device{
-	constructor(name, model, id, sound, brightness, channels){
-		super(name, model, id);
-		this._type = "tv";
-		this._sound = sound;
-		this._brightness = brightness;
-		this._channels = channels;
-	}
+function Tv(name, model, id, sound, brightness, channels){
+	Device.call(this, name, model, id);
+	Sound.call(this);
+	Brightness.call(this);
+	Channels.call(this, channels);
+	this._type = "tv";
+}
 
-	soundValue(){ return this._sound._soundValue; }
-	increaseVolume(){ return this._sound.increase(); }
-	decreaseVolume(){ return this._sound.decrease(); }
-	offVolume(){ return this._sound.off(); }
-	onVolume(){ return this._sound.on(); }
-	statusVolume(){ return this._sound._soundOff; }
+Tv.prototype.soundValue = function (){
+	return Sound.prototype.getSoundValue.call(this);
+}
+Tv.prototype.increaseVolume = function (){
+	return Sound.prototype.increase.call(this);
+}
+Tv.prototype.decreaseVolume = function (){
+	return Sound.prototype.decrease.call(this);
+}
+Tv.prototype.offVolume = function (){
+	return Sound.prototype.off.call(this);
+}
+Tv.prototype.onVolume = function (){
+	return Sound.prototype.on.call(this);
+}
+Tv.prototype.statusVolume = function (){
+	return Sound.prototype.getStatusVolume.call(this);
+}
 
-	brightnessValue(){ return this._brightness._value; }
-	increaseBrightness(){ return this._brightness.increase(); }
-	decreaseBrightness(){ return this._brightness.decrease(); }
+Tv.prototype.brightnessValue = function (){
+	return Brightness.prototype.getBrightValue.call(this);
+}
+Tv.prototype.increaseBrightness = function (){
+	return Brightness.prototype.increase.call(this);
+}
+Tv.prototype.decreaseBrightness = function (){
+	return Brightness.prototype.decrease.call(this);
+}
 
-	currentChannel(){ return this._channels.currentChannel(); }
-	setCurrentChannel(currentChannel){ return this._channels.setCurrentChannel(currentChannel); }
-	channelNext(){ return this._channels.next(); }
-	channelPrev(){ return this._channels.prev(); }
-	addChannels(channels){ return this._channels.addChannels(channels); }
-	deleteChannels(delEl){ return this._channels.deleteChannels(delEl); }
-
+Tv.prototype.currentChannel = function (){
+	return Channels.prototype.currentChannel.call(this);
+}
+Tv.prototype.setCurrentChannel = function (currentChannel){
+	return Channels.prototype.setCurrentChannel.call(this, currentChannel);
+}
+Tv.prototype.channelNext = function (){
+	return Channels.prototype.next.call(this);
+}
+Tv.prototype.channelPrev = function (){
+	return Channels.prototype.prev.call(this);
+}
+Tv.prototype.addChannels = function (channels){
+	return Channels.prototype.addChannels.call(this, channels);
+}
+Tv.prototype.deleteChannels = function (delEl){
+	return Channels.prototype.deleteChannels.call(this, delEl);
 }

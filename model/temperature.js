@@ -1,30 +1,30 @@
 "use strict";
 function Temperature() {
-	this._value = 0,
-	this._max = 10,
-	this._min = -10;
+	this._valueTemperature = 0,
+	this._maxTemperature = 10,
+	this._minTemperature = -10;
 }
 
 Temperature.prototype.getTempValue = function (){
-	return this._value;
+	return this._valueTemperature;
 }
 Temperature.prototype.setMaxValue = function (max){
-	if (typeoff(max) === "number") {
-		this._max = max;
+	if ( typeof(max) === "number" ) {
+		this._maxTemperature = max;
 	}
 }
 Temperature.prototype.setMinValue = function (min){
-	if (typeoff(min) === "number") {
-		this._min = min;
+	if (typeof(min) === "number") {
+		this._minTemperature = min;
 	}
 }
 Temperature.prototype.increase = function (){
-	if (this._value < this._max) {
-		this._value += 1;
+	if (this._valueTemperature < this._maxTemperature) {
+		this._valueTemperature += 1;
 	}
 }
 Temperature.prototype.decrease = function (){
-	if (this._value > this._min) {
-		this._value -= 1;
+	if (this._valueTemperature > this._minTemperature) {
+		this._valueTemperature -= 1;
 	}
 }

@@ -29,3 +29,6 @@ Sound.prototype.on = function (){
 	this._soundOff = false;
 	this._soundValue = this._soundValueTemp;
 }
+Sound.prototype.getStatusVolume = function (){
+	return this._soundOff;
+}
