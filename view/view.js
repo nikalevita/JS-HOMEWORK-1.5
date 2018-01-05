@@ -163,7 +163,7 @@ View.prototype.render = function () {
 	}
 
 	let brightWrap = document.createElement("div");
-	if('_valueBrightness' in this._device){
+	if('_brightness' in this._device){
 		brightWrap.className = "btn-group";
 
 		this._bright.className = "bright";
@@ -250,7 +250,7 @@ View.prototype.render = function () {
 		brightWrap.appendChild(this._brightIncBtn);
 	}
 
-	if('_channels' in this._device){
+	if('_brightness' in this._device){
 		device.appendChild(this._channel);
 		device.appendChild(channelWrap);
 		channelWrap.appendChild(this._channelPrevBtn);

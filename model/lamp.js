@@ -1,7 +1,7 @@
 "use strict";
 function Lamp(name, model, id, brightness){
 	Device.call(this, name, model, id);
-	Brightness.call(this);
+	this._brightness = brightness;
 	this._type = "lamp";
 }
 
@@ -21,3 +21,9 @@ Lamp.prototype.increaseBrightness = function (){
 Lamp.prototype.decreaseBrightness = function (){
 	return Brightness.prototype.decrease.call(this);
 }
+
+var ml = new Lamp('sdsd', 'sadasd', 2, new Brightness());
+
+ml.increaseBrightness();
+
+console.log(ml);
