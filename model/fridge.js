@@ -9,7 +9,7 @@ Fridge.prototype = Object.create(Device.prototype);
 Fridge.prototype.constructor = Fridge;
 
 Fridge.prototype.temperatureValue = function (){ 
-	return this._temperature._valueTemperature;
+	return this._temperature.getTempValue();
 }
 Fridge.prototype.setTemperatureMaxValue = function (max){
 	this._temperature.setMaxValue(max);

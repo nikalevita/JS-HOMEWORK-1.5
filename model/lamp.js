@@ -9,8 +9,9 @@ Lamp.prototype = Object.create(Device.prototype);
 Lamp.prototype.constructor = Lamp;
 
 Lamp.prototype.brightnessValue = function () {
-   return this._brightness._valueBrightness;
+   return this._brightness.getBrightValue();
 };
+
 Lamp.prototype.increaseBrightness = function () {
    this._brightness.increase();
 };

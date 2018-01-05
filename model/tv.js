@@ -12,7 +12,7 @@ Tv.prototype.constructor = Tv;
 
 
 Tv.prototype.soundValue = function (){
-	return this._sound._soundValue;
+	return this._sound.getSoundValue();
 }
 Tv.prototype.increaseVolume = function (){
 	this._sound.increase();
@@ -27,11 +27,11 @@ Tv.prototype.onVolume = function (){
 	this._sound.on();
 }
 Tv.prototype.statusVolume = function (){
-	return this._sound._soundOff;
+	return this._sound.getStatusVolume();
 }
 
 Tv.prototype.brightnessValue = function () {
-   return this._brightness._valueBrightness;
+   return this._brightness.getBrightValue();
 };
 Tv.prototype.increaseBrightness = function () {
    this._brightness.increase();
@@ -41,7 +41,7 @@ Tv.prototype.decreaseBrightness = function () {
 };
 
 Tv.prototype.currentChannel = function (){
-	return this._channels._channels[this._channels._currentChannel];
+	return this._channels.currentChannel();
 }
 Tv.prototype.setCurrentChannel = function (currentChannel){
 	this._channels.setCurrentChannel(currentChannel);
