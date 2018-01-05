@@ -5,7 +5,7 @@ var channelsPackage = {
 	discovery: ["discovery-1", "discovery-2", "discovery-3", "discovery-4"]
 };
 
-var myTv = new Tv('My TV', 'LG-3000', 1, new Sound(), new Brightness(), channelsPackage.standart);
+var myTv = new Tv('My TV', 'LG-3000', 1, new Sound(), new Brightness(), new Channels(channelsPackage.standart));
 var myFridge = new Fridge('My Fridge', 'NORD-200', 2, new Temperature());
 var myLamp = new Lamp('My Lamp', 'Xiaomi Yeelight', 3, new Brightness());
 
@@ -60,7 +60,7 @@ document.getElementById('addDevice').addEventListener("click", function(){
 	switch(typeVal) {
 		case 'tv':
 			if( name !== '' ){
-				newDevice = new Tv( name, model, id, new Sound(), new Brightness(), getSelection() );
+				newDevice = new Tv( name, model, id, new Sound(), new Brightness(), new Channels(getSelection()) );
 			} else {
 				throw new Error("Введите данные");
 			}

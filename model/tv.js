@@ -1,63 +1,60 @@
 "use strict";
 function Tv(name, model, id, sound, brightness, channels){
 	Device.call(this, name, model, id);
-	Sound.call(this);
-	Brightness.call(this);
-	Channels.call(this, channels);
+	this._sound = sound;
+	this._brightness = brightness;
+	this._channels = channels;
 	this._type = "tv";
 }
 
-Tv.prototype.on = function (){
-	return Device.prototype.on.call(this);
-}
-Tv.prototype.off = function (){
-	return Device.prototype.off.call(this);
-}
+Tv.prototype = Object.create(Device.prototype);
+Tv.prototype.constructor = Tv;
+
 
 Tv.prototype.soundValue = function (){
-	return Sound.prototype.getSoundValue.call(this);
+	return this._sound._soundValue;
 }
 Tv.prototype.increaseVolume = function (){
-	return Sound.prototype.increase.call(this);
+	this._sound.increase();
 }
 Tv.prototype.decreaseVolume = function (){
-	return Sound.prototype.decrease.call(this);
+	this._sound.decrease();
 }
 Tv.prototype.offVolume = function (){
-	return Sound.prototype.off.call(this);
+	this._sound.off();
 }
 Tv.prototype.onVolume = function (){
-	return Sound.prototype.on.call(this);
+	this._sound.on();
 }
 Tv.prototype.statusVolume = function (){
-	return Sound.prototype.getStatusVolume.call(this);
+	return this._sound._soundOff;
 }
 
-Tv.prototype.brightnessValue = function (){
-	return Brightness.prototype.getBrightValue.call(this);
-}
-Tv.prototype.increaseBrightness = function (){
-	return Brightness.prototype.increase.call(this);
-}
-Tv.prototype.decreaseBrightness = function (){
-	return Brightness.prototype.decrease.call(this);
-}
+Tv.prototype.brightnessValue = function () {
+   return this._brightness._valueBrightness;
+};
+Tv.prototype.increaseBrightness = function () {
+   this._brightness.increase();
+};
+Tv.prototype.decreaseBrightness = function () {
+   this._brightness.decrease();
+};
 
 Tv.prototype.currentChannel = function (){
-	return Channels.prototype.currentChannel.call(this);
+	return this._channels._channels[this._channels._currentChannel];
 }
 Tv.prototype.setCurrentChannel = function (currentChannel){
-	return Channels.prototype.setCurrentChannel.call(this, currentChannel);
+	this._channels.setCurrentChannel(currentChannel);
 }
 Tv.prototype.channelNext = function (){
-	return Channels.prototype.next.call(this);
+	this._channels.next();
 }
 Tv.prototype.channelPrev = function (){
-	return Channels.prototype.prev.call(this);
+	this._channels.prev();
 }
 Tv.prototype.addChannels = function (channels){
-	return Channels.prototype.addChannels.call(this, channels);
+	this._channels.addChannels(channels);
 }
 Tv.prototype.deleteChannels = function (delEl){
-	return Channels.prototype.deleteChannels.call(this, delEl);
+	this._channels.deleteChannels(delEl);
 }

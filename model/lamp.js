@@ -5,25 +5,15 @@ function Lamp(name, model, id, brightness){
 	this._type = "lamp";
 }
 
-Lamp.prototype.on = function (){
-	return Device.prototype.on.call(this);
-}
-Lamp.prototype.off = function (){
-	return Device.prototype.off.call(this);
-}
+Lamp.prototype = Object.create(Device.prototype);
+Lamp.prototype.constructor = Lamp;
 
-Lamp.prototype.brightnessValue = function (){
-	return Brightness.prototype.getBrightValue.call(this);
-}
-Lamp.prototype.increaseBrightness = function (){
-	return Brightness.prototype.increase.call(this);
-}
-Lamp.prototype.decreaseBrightness = function (){
-	return Brightness.prototype.decrease.call(this);
-}
-
-var ml = new Lamp('sdsd', 'sadasd', 2, new Brightness());
-
-ml.increaseBrightness();
-
-console.log(ml);
+Lamp.prototype.brightnessValue = function () {
+   return this._brightness._valueBrightness;
+};
+Lamp.prototype.increaseBrightness = function () {
+   this._brightness.increase();
+};
+Lamp.prototype.decreaseBrightness = function () {
+   this._brightness.decrease();
+};
